@@ -11,6 +11,8 @@ import VerifyLoginAccountScreen from "../pages/auth/VerifyLoginAccountScreen";
 import PrivateRouter from "./privateRouter";
 import HomePageScreen from "../pages/home/HomePageScreen";
 import HomeLayout from "../layout/homeLayout";
+import Connection from "../pages/connection/Connection";
+import Setting from "../pages/setting/Setting";
 
 export const router = createBrowserRouter([
   {
@@ -27,6 +29,16 @@ export const router = createBrowserRouter([
           {
             index: true,
             element: <HomePageScreen />,
+          },
+          {
+            index: true,
+            path: "connection",
+            element: <Connection />,
+          },
+          {
+            index: true,
+            path: "setting",
+            element: <Setting />,
           },
         ],
       },

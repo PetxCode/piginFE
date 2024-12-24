@@ -22,7 +22,7 @@ const Layout = () => {
             className="w-full flex flex-col justify-center items-center h-full border-r cursor-pointer"
           >
             <MdSpaceDashboard className="font-bold text-[15px] mb-1" />
-            <p className="text-[12px] font-semibold">Home</p>
+            <p className="text-[12px] ">Home</p>
           </Link>
 
           <Link
@@ -30,23 +30,21 @@ const Layout = () => {
             className="w-full flex flex-col justify-center items-center h-full border-r cursor-pointer"
           >
             <FaPlug className="font-bold text-[15px] mb-1" />
-            <p className="text-[12px] font-semibold">Connections</p>
+            <p className="text-[12px] ">Connections</p>
           </Link>
           <Link
             to="/setting"
             className="w-full flex flex-col justify-center items-center h-full border-r cursor-pointer"
           >
             <IoSettingsSharp className="font-bold text-[18px] mb-1" />
-            <button className="text-[12px] font-semibold uppercase">
-              Profile
-            </button>
+            <button className="text-[12px]  uppercase">Profile</button>
           </Link>
           <div
             className="w-full flex flex-col justify-center items-center h-full border-r cursor-pointer"
             onClick={() => dispatch(logoutUser())}
           >
             <FaPowerOff className="font-bold text-[15px] mb-1" />
-            <p className="text-[12px] font-semibold">LogOut</p>
+            <p className="text-[12px] ">LogOut</p>
           </div>
         </div>
       </div>

@@ -22,7 +22,7 @@ const PasswordRequestConfirmScreen = () => {
           <Link
             to="/"
             type="submit"
-            className="mt-6 rounded-md bg-black text-white w-full py-3 flex justify-center"
+            className="mt-6 rounded-md bg-slate-800 hover:bg-slate-900 text-white w-full py-3 flex justify-center"
           >
             Go back home
           </Link>

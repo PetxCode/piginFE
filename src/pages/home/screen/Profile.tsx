@@ -89,6 +89,7 @@ const Prof: FC<any> = ({ id }) => {
           className="uppercase  hover:bg-slate-900 bg-slate-800 duration-300 transition-all text-white px-6 py-2 rounded-md text-[10px]"
           onClick={() => {
             addAsFriend(user?._id, id).then((res) => {
+              console.log(res);
               if (res.status === 201) {
                 alert("Friends as been added successfully");
               } else {

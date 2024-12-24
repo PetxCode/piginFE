@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useRef } from "react";
+import React, { FC, useCallback, useEffect, useRef } from "react";
 import {
   EmblaCarouselType,
   EmblaEventType,
@@ -7,6 +7,7 @@ import {
 import useEmblaCarousel from "embla-carousel-react";
 import { DotButton, useDotButton } from "./sliderDots";
 import { NextButton, PrevButton, usePrevNextButtons } from "./sliderButton";
+import { useOneUser } from "@/hooks/useWord";
 // import {
 //   NextButton,
 //   PrevButton,
@@ -100,37 +101,71 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
       <div className="embla__viewport" ref={emblaRef}>
         <div className="embla__container">
           {slides.map((index) => (
-            <div className="embla__slide" key={index}>
-              <img
-                className="embla__slide__img"
-                src={`https://picsum.photos/600/350?v=${index}`}
-                alt="Your alt text"
-              />
-            </div>
+            <PersonalInfo index={index} />
           ))}
         </div>
       </div>
 
-      <div className="embla__controls ">
-        <div className="embla__buttons ">
-          <PrevButton onClick={onPrevButtonClick} disabled={prevBtnDisabled} />
-          <NextButton onClick={onNextButtonClick} disabled={nextBtnDisabled} />
-        </div>
-
-        <div className="embla__dots">
-          {scrollSnaps.map((_, index) => (
-            <DotButton
-              key={index}
-              onClick={() => onDotButtonClick(index)}
-              className={"embla__dot".concat(
-                index === selectedIndex ? " embla__dot--selected" : ""
-              )}
+      {slides.length > 1 && (
+        <div className="embla__controls ">
+          <div className="embla__buttons ">
+            <PrevButton
+              onClick={onPrevButtonClick}
+              disabled={prevBtnDisabled}
             />
-          ))}
+            <NextButton
+              onClick={onNextButtonClick}
+              disabled={nextBtnDisabled}
+            />
+          </div>
+
+          <div className="embla__dots">
+            {scrollSnaps.map((_, index) => (
+              <DotButton
+                key={index}
+                onClick={() => onDotButtonClick(index)}
+                className={"embla__dot".concat(
+                  index === selectedIndex ? " embla__dot--selected" : ""
+                )}
+              />
+            ))}
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };
 
 export default EmblaCarousel;
+
+const PersonalInfo: FC<any> = ({ index }) => {
+  const read: any = useOneUser(index);
+  return (
+    <div className="embla__slide" key={index}>
+      {read?.data?.avatar ? (
+        <img
+          className="absolute w-10 h-10 rounded-full border-white border m-2 flex justify-center items-center object-cover"
+          src={read?.data?.avatar}
+          alt={read?.data?.email}
+        />
+      ) : (
+        <div className="absolute w-10 h-10 rounded-full border-white border m-2 flex justify-center items-center bg-slate-600 text-white uppercase">
+          {read?.data?.email?.charAt(0)}
+        </div>
+      )}
+      {read?.data?.coverImage ? (
+        <img
+          className="embla__slide__img"
+          src={read?.data?.coverImage}
+          alt={read?.data?.email}
+        />
+      ) : (
+        <img
+          className="embla__slide__img"
+          src={`https://picsum.photos/600/350?v=${index}`}
+          alt={read?.data?.email}
+        />
+      )}
+    </div>
+  );
+};

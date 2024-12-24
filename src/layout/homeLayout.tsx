@@ -14,7 +14,7 @@ const HomeLayout = () => {
             <Outlet />
           </div>
           <div className="hidden md:block md:col-span-3 lg:col-span-2 p-2">
-            <div className="sticky top-2  border rounded-md p-2 min-h-[500px]">
+            <div className="sticky top-2  border rounded-md p-2 min-h-[100px]">
               <ConnectWithPeople />
             </div>
           </div>

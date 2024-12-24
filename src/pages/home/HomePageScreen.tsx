@@ -11,7 +11,6 @@ import Slider from "./Slider";
 const HomePageScreen = () => {
   const user = useSelector((state: any) => state.user);
 
-  console.log(user);
   const [loading, setLoading] = useState<boolean>(false);
   const [post, setPost] = useState<boolean>(false);
   const [word, setWord] = useState<string>("");

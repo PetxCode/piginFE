@@ -119,7 +119,7 @@ const LoginScreen = () => {
           ) : (
             <button
               type="submit"
-              className="mt-6 rounded-md bg-black transition-all duration-300 text-white w-full py-3"
+              className="mt-6 rounded-md bg-slate-800 hover:bg-slate-900 transition-all duration-300 text-white w-full py-3"
             >
               Login
             </button>

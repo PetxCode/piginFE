@@ -193,7 +193,6 @@ const WordMeaning: FC<any> = ({ id }) => {
             onClick={() => {
               agreedWordMeaning(user?._id, data?.meaning[0]._id).then((res) => {
                 if (res.status === 201) {
-                  console.log(res);
                   toast.success("agreed");
                   mutate(`api/read-all-meaning/${data?.meaning[0]._id}`);
                 } else {
